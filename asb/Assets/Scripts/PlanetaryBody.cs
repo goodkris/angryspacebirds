@@ -9,17 +9,19 @@ public class PlanetaryBody : MonoBehaviour
     public Vector3 InitialVelocity;
     public float rotationSpeed = 0.5f;
     public float Mass = 1;
+    public float Massn1;
     public float Size = 1;
     public int StepSize = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        Massn1 = 1 / Mass;
 
-    // Update is called once per frame
-    void Update()
+}
+
+// Update is called once per frame
+void Update()
     {
         // update object's position based on velocity
         gameObject.transform.position += Velocity;
