@@ -1,0 +1,35 @@
+
+
+- ui design
+- simulation parameters
+   - size, mass, initial velocity, initial spin, constraints?
+- inclination of object's orbit - how to convey that easily
+- is scale important?
+- what calculations do we need?
+- what would be the step size?
+- define scope
+- what would the presentation look like? what support materials would we need?
+
+research needed
+- types of stars
+- variety of planet densities (mass/size)
+- typical orbital distances
+- existing games and what they do best/what is missing in them
+
+
+why do objects start to spin?
+ - if there are only two objects interacting from rest and they are symmetrical, they will not spin
+ - they will spin if they are irregular - force applied on different parts of the objects is different due to difference in distance
+ - if there are more than one, they will spin as they are guided by more than one force acting on each.
+ - all planetary objects are formed of dust clouds - imagine them to be a large number of objects
+   as they come together they miss one another and start going around each other colliding with other dust particles.
+
+Tasks
+Bird1 - help with calculations/simulation parameters
+Bird2 - integrate calculations into unity
+Bird3 - make things pretty
+Bird4 - research NASA data sets on solar systems
+Bird5 - research other games to get inspired from  - make presentation materials.
+Bird6 - create educational material (tutorials/explanations/encouragement)
+Bird7 - keep us on schedule - interaction with mentors.
+Bird8 - Make up your own task.
