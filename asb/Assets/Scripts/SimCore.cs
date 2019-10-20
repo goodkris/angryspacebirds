@@ -42,7 +42,7 @@ public class SimCore : MonoBehaviour
             // update velocity vector on each planetary body.
             
             var pb = PlanetaryBodies[i].GetComponent<PlanetaryBody>();
-            Debug.Log("Looking at Object: " + pb.ObjectName);
+            // Debug.Log("Looking at Object: " + pb.ObjectName);
             double mass = pb.Mass;
             Vector3 posi = PlanetaryBodies[i].gameObject.transform.position;
 
@@ -66,18 +66,18 @@ public class SimCore : MonoBehaviour
                 //var disy = dy - pb2.posy;
                 double disz = dz - pb2.posz;
 
-                Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx.ToString("F8") +"   " + disz.ToString("F8") + " Vel " + velocityx.ToString("F8") + "   " + velocityz.ToString("F8"));
+                // Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx.ToString("F8") +"   " + disz.ToString("F8") + " Vel " + velocityx.ToString("F8") + "   " + velocityz.ToString("F8"));
 
                 double distSq = disx * disx + disz * disz; // + disy * disy;
                 double invDist = 1.0 / (distSq);
                 //float invDist3 = gravity * mass * Mathf.Abs(invDist * invDist * invDist);
                 double accel = mass2 * invDist * invDist * gravity;
-                Debug.Log("indDist " + invDist.ToString("F8") + " accel   " + accel.ToString("F45"));
+                // Debug.Log("indDist " + invDist.ToString("F8") + " accel   " + accel.ToString("F45"));
 
                 velocityx += (float)(disx * accel);
                 //veli3.y += dt * disy * invDist3;
                 velocityz += (float)(disz * accel);
-                Debug.Log("New  Vel " + velocityx.ToString("F") + "   " + velocityz.ToString("F"));
+                // Debug.Log("New  Vel " + velocityx.ToString("F") + "   " + velocityz.ToString("F"));
             }
 
             // figure out the updated velocity vector after calculations...
