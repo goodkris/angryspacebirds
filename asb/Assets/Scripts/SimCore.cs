@@ -62,9 +62,9 @@ public class SimCore : MonoBehaviour
                 double mass2 = pb2.Mass;
 
                 Vector3 posj = PlanetaryBodies[j].transform.gameObject.transform.position;
-                double disx = dx - pb2.posx;
-                //var disy = dy - pb2.posy;
-                double disz = dz - pb2.posz;
+                double disx = pb2.pox - dxx;
+                //var disy = pb2.posy - dy;
+                double disz = pb2.posz -dz;
 
                 Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx +"   " + disz + " InitV " + velocityx + "   " + velocityz);
 
