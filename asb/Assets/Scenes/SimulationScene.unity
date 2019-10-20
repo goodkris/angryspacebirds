@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 519903701}
   - component: {fileID: 519903700}
   - component: {fileID: 519903699}
+  - component: {fileID: 519903703}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Untagged
@@ -212,6 +213,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519903703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519903698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243745fb083f613449ce5f2f39fd5fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0, z: 0}
+  InitialVelocity: {x: 0, y: 0, z: 0}
+  rotationSpeed: 0.5
+  Mass: 100000
+  Size: 1
+  StepSize: 1
+  simStepTime: 60
+  Massn1: 0
 --- !u!1 &664526025
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +246,7 @@ GameObject:
   - component: {fileID: 664526027}
   - component: {fileID: 664526026}
   - component: {fileID: 664526030}
+  - component: {fileID: 664526031}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -320,9 +342,31 @@ MonoBehaviour:
   Velocity: {x: 0, y: 0, z: 0}
   InitialVelocity: {x: 0, y: 0, z: 0}
   rotationSpeed: 0.1
+  Mass: 2000000
+  Size: 1
+  StepSize: 1
+  simStepTime: 60
+  Massn1: 0
+--- !u!114 &664526031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664526025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243745fb083f613449ce5f2f39fd5fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0, z: 0}
+  InitialVelocity: {x: 0, y: 0, z: 0}
+  rotationSpeed: 0.5
   Mass: 1
   Size: 1
   StepSize: 1
+  simStepTime: 60
+  Massn1: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c429406a7c6554a9321b982810b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetaryBodies: []
+  PlanetaryBodies:
+  - {fileID: 664526025}
+  - {fileID: 519903698}
+  simStepTime: 60
+  gravity: -1.99356e-44
 --- !u!4 &1006373989
 Transform:
   m_ObjectHideFlags: 0
