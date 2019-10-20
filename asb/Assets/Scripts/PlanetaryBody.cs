@@ -12,7 +12,7 @@ public class PlanetaryBody : MonoBehaviour
     public float Size = 1;
     public int StepSize = 1;
     public float simStepTime = 60.0F;
-
+    public float Massn1;
 
     // Start is called before the first frame update
     void Start()
