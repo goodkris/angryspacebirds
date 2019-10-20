@@ -593,7 +593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c429406a7c6554a9321b982810b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetaryBodies: []
+  PlanetaryBodies:
+  - {fileID: 664526025}
+  - {fileID: 519903698}
   simStepTime: 60
   gravity: -1.99356e-44
 --- !u!4 &1006373989
