@@ -7,6 +7,11 @@ using UnityEngine;
 public class SimCore : MonoBehaviour
 {
 
+    public GameObject planetPrefab;
+    public Camera camera;
+    public bool flyByMode = false;
+    GameObject planetToCreate;
+    
     public List<GameObject> PlanetaryBodies; 
     public double simStepTime = 60.0;
     public double gravity = -1.99356e-44; 
@@ -78,5 +83,24 @@ public class SimCore : MonoBehaviour
             //var newVelocity = new Vector3(updatedX, updatedY, updatedZ);
             pb.Velocity = veli3;
         }
+        
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            camera.GetComponent<CameraControl>().enabled = flyByMode;
+            flyByMode = !flyByMode;
+
+        }
+      
+
+    }
+
+    public void addPlanet()
+    {
+
+        var newPlanet = Instantiate(planetPrefab, gameObject.transform);
+        planetToCreate = newPlanet;
+        newPlanet.transform.position = new Vector3(0, 0, 0);
+
     }
 }
