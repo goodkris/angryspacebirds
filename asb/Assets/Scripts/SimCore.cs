@@ -50,9 +50,10 @@ public class SimCore : MonoBehaviour
             //float dy = pb.posy;
             double dz = pb.posz;
 
-            Vector3 veli3 = pb.Velocity;
             double velocityx = pb.Velocityx;
             double velocityz = pb.Velocityz;
+            double initvx = velocityx;
+            double initvz = velocityz;
 
             for (int j=0; j<PlanetaryBodies.Count; j++)
             {
@@ -66,32 +67,32 @@ public class SimCore : MonoBehaviour
                 //var disy = dy - pb2.posy;
                 double disz = dz - pb2.posz;
 
-                Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx.ToString("F8") +"   " + disz.ToString("F8") + " Vel " + velocityx.ToString("F8") + "   " + velocityz.ToString("F8"));
+                Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx +"   " + disz + " InitV " + velocityx + "   " + velocityz);
 
                 double distSq = disx * disx + disz * disz; // + disy * disy + disz * disz;
                 double invDist = 1.0 / Math.Sqrt(distSq);
-                double accel = mass2 * invDist * invDist * invDist * gravity * simStepTime;
+                double accel = mass2 * invDist * invDist * gravity;
 
-        // When you evaluate that you need to compute the components of the acceleration...
-        //  The faster way really is to calculate the invDist, and take dist component * invDi * invDi * invDi
+                // When you evaluate that you need to compute the components of the acceleration...
+                //  The faster way really is to calculate the invDist, and take dist component * invDi * invDi * invDi
 
 
-        Debug.Log("indDist " + invDist.ToString("F8") + " accel   " + accel.ToString("F25"));
+                Debug.Log("indDist " + invDist + " accel   " + accel);
 
-                velocityx += (float)(disx * accel);
+                velocityx += (float)(disx * accel * invDist * simStepTime);
                 //veli3.y += dt * disy * invDist3;
-                velocityz += (float)(disz * accel);
-                Debug.Log("New  Accelx " + velocityx.ToString("F") + " Accely   " + velocityz.ToString("F"));
+                velocityz += (float)(disz * accel * invDist * simStepTime);
+                Debug.Log("New  Accelx " + velocityx + " Accely   " + velocityz);
             }
 
             // figure out the updated velocity vector after calculations...
             // calculations here!
 
             //var newVelocity = new Vector3(updatedX, updatedY, updatedZ);
-            pb.Velocity = veli3;
-            pb.posx += velocityx;
-            pb.posy += veli3.y;
-            pb.posz += velocityz;
+            pb.Velocityx = velocityx;
+            pb.Velocityz = velocityz;
+            pb.posx += simStepTime * (initvx * 0.5 + velocityx);
+            pb.posz += simStepTime * (initvy * 0.5 + velocityx);
         }
         
 
