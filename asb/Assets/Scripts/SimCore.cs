@@ -8,7 +8,6 @@ public class SimCore : MonoBehaviour
 {
 
     public GameObject planetPrefab;
-    public Camera camera;
     public bool flyByMode = false;
     GameObject planetToCreate;
     
@@ -92,17 +91,8 @@ public class SimCore : MonoBehaviour
             pb.Velocityx = velocityx;
             pb.Velocityz = velocityz;
             pb.posx += simStepTime * (initvx * 0.5 + velocityx);
-            pb.posz += simStepTime * (initvy * 0.5 + velocityx);
+            pb.posz += simStepTime * (initvz * 0.5 + velocityz);
         }
-        
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            camera.GetComponent<CameraControl>().enabled = flyByMode;
-            flyByMode = !flyByMode;
-
-        }
-      
 
     }
 
