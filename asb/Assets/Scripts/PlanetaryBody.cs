@@ -24,7 +24,10 @@ public class PlanetaryBody : MonoBehaviour
     void Update()
     {
         // update object's position based on velocity
-        gameObject.transform.position += Velocity * simStepTime;
+
+
+        Debug.Log("position = " + gameObject.transform.position + " New Vel = " + Velocity);
+        gameObject.transform.position += Velocity;
 
         gameObject.transform.Rotate(new Vector3(0, rotationSpeed, 0));
     }

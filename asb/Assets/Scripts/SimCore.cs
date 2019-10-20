@@ -63,12 +63,12 @@ public class SimCore : MonoBehaviour
                 double distSq = disx * disx + disz * disz; // + disy * disy;
                 double invDist = 1.0 / Math.Sqrt(distSq);
                 //float invDist3 = gravity * mass * Mathf.Abs(invDist * invDist * invDist);
-                double invDist3 = mass2 * Math.Abs(invDist * invDist * invDist) * gravity;
-                Debug.Log("indDist " + invDist.ToString("F8") + " invDist3   " + invDist3.ToString("F8"));
+                double accel = mass2 * Math.Abs(invDist * invDist * invDist) * gravity;
+                Debug.Log("indDist " + invDist.ToString("F8") + " accel   " + accel.ToString("F45"));
 
-                veli3.x += (float)(disx * invDist3);
+                veli3.x += (float)(disx * accel);
                 //veli3.y += dt * disy * invDist3;
-                veli3.z += (float)(disz * invDist3);
+                veli3.z += (float)(disz * accel);
                 Debug.Log("New  Vel " + veli3.x.ToString("F") + "   " + veli3.z.ToString("F"));
             }
 
