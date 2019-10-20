@@ -13,7 +13,7 @@ public class SimCore : MonoBehaviour
     GameObject planetToCreate;
     
     public List<GameObject> PlanetaryBodies; 
-    public double simStepTime = 60.0;
+    public double simStepTime = 3600.0;
     public double gravity = -1.99356e-44; 
 
 

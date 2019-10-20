@@ -149,7 +149,7 @@ SphereCollider:
   m_GameObject: {fileID: 519903698}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -207,8 +207,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519903698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00257}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 30.17}
+  m_LocalScale: {x: 0.2724, y: 0.2724, z: 0.2724}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -231,7 +231,7 @@ MonoBehaviour:
   Mass: 7.346e+22
   Size: 1
   StepSize: 1
-  simStepTime: 60
+  simStepTime: 3600
   Massn1: 0
 --- !u!1 &664526025
 GameObject:
@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 664526027}
   - component: {fileID: 664526026}
   - component: {fileID: 664526030}
-  - component: {fileID: 664526031}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -263,7 +262,7 @@ SphereCollider:
   m_GameObject: {fileID: 664526025}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -345,27 +344,7 @@ MonoBehaviour:
   Mass: 5.97e+24
   Size: 1
   StepSize: 1
-  simStepTime: 60
-  Massn1: 0
---- !u!114 &664526031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664526025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243745fb083f613449ce5f2f39fd5fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0, z: 0}
-  InitialVelocity: {x: 0, y: 0, z: 0}
-  rotationSpeed: 0.5
-  Mass: 1
-  Size: 1
-  StepSize: 1
-  simStepTime: 60
+  simStepTime: 3600
   Massn1: 0
 --- !u!1 &705507993
 GameObject:
@@ -574,6 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006373989}
   - component: {fileID: 1006373988}
+  - component: {fileID: 1006373990}
   m_Layer: 0
   m_Name: SimulationCore
   m_TagString: Untagged
@@ -612,6 +592,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006373990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006373987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8087132944bb3f142802caf5c5f5f12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetPrefab: {fileID: 0}
+  camera: {fileID: 0}
+  flyByMode: 0
+  PlanetaryBodies:
+  - {fileID: 664526025}
+  - {fileID: 519903698}
+  simStepTime: 3600
+  gravity: -1.99356e-44
 --- !u!1 &2071986768
 GameObject:
   m_ObjectHideFlags: 0
