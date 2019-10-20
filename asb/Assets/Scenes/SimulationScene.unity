@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519903698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.48}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   Velocity: {x: 0, y: 0, z: 0}
   InitialVelocity: {x: 0, y: 0, z: 0}
   rotationSpeed: 0.5
-  Mass: 100000000
+  Mass: 7.346e+22
   Size: 1
   StepSize: 1
   simStepTime: 60
@@ -342,7 +342,7 @@ MonoBehaviour:
   Velocity: {x: 0, y: 0, z: 0}
   InitialVelocity: {x: 0, y: 0, z: 0}
   rotationSpeed: 0.1
-  Mass: 2e+10
+  Mass: 5.97e+24
   Size: 1
   StepSize: 1
   simStepTime: 60
