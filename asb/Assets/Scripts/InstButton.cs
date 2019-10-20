@@ -19,7 +19,7 @@ public class InstButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        insText.text =  "Instruction details hotkeys?";
+        insText.text =  "Press f to enter flyby mode!";
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)

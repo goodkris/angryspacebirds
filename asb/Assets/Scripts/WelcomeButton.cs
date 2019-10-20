@@ -19,7 +19,7 @@ public class WelcomeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        welcomeText.text =  "The game introduction";
+        welcomeText.text =  "Welcome to UniverseBuilder";
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
