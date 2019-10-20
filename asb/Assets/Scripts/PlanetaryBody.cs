@@ -37,7 +37,7 @@ public class PlanetaryBody : MonoBehaviour
 
         //Debug.Log("position = " + gameObject.transform.position + " New Vel = " + Velocity);
         //gameObject.transform.position += Velocity;
-        Debug.Log("Updating position = " + gameObject.transform.position + " for " + ObjectName);
+        // Debug.Log("Updating position = " + gameObject.transform.position + " for " + ObjectName);
         gameObject.transform.position = new Vector3((float)posx,(float)posy,(float)posz);
 
 
