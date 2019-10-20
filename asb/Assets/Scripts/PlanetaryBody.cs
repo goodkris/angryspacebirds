@@ -14,6 +14,9 @@ public class PlanetaryBody : MonoBehaviour
     public double posx = 0.0;
     public double posy = 0.0;
     public double posz = 0.0;
+    public double Velocityx;
+    public double Velocityz;
+    public string ObjectName ="";
 
 
     // Start is called before the first frame update
@@ -22,7 +25,8 @@ public class PlanetaryBody : MonoBehaviour
         posx = gameObject.transform.position.x;
         posy = gameObject.transform.position.y;
         posz = gameObject.transform.position.z;
-
+        Velocityx = Velocity.x;
+        Velocityz = Velocity.z;
     }
 
     // Update is called once per frame
@@ -31,8 +35,11 @@ public class PlanetaryBody : MonoBehaviour
         // update object's position based on velocity
 
 
-        Debug.Log("position = " + gameObject.transform.position + " New Vel = " + Velocity);
-        gameObject.transform.position += Velocity;
+        //Debug.Log("position = " + gameObject.transform.position + " New Vel = " + Velocity);
+        //gameObject.transform.position += Velocity;
+        Debug.Log("Updating position = " + gameObject.transform.position + " for " + ObjectName);
+        gameObject.transform.position = new Vector3((float)posx,(float)posy,(float)posz);
+
 
         gameObject.transform.Rotate(new Vector3(0, rotationSpeed, 0));
     }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7968763436701736415}
   - component: {fileID: 7968763436701736414}
   - component: {fileID: 7968763436701736410}
-  - component: {fileID: 7968763436701736411}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -111,26 +110,9 @@ MonoBehaviour:
   rotationSpeed: 0.1
   Mass: 5.97e+24
   Size: 1
-  StepSize: 1
   simStepTime: 60
-  Massn1: 0
---- !u!114 &7968763436701736411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968763436701736413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243745fb083f613449ce5f2f39fd5fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0, z: 0}
-  InitialVelocity: {x: 0, y: 0, z: 0}
-  rotationSpeed: 0.5
-  Mass: 1
-  Size: 1
-  StepSize: 1
-  simStepTime: 60
-  Massn1: 0
+  posx: 0
+  posy: 0
+  posz: 0
+  Velocityx: 0
+  Velocityz: 0

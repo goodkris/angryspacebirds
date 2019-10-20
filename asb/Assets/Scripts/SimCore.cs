@@ -14,7 +14,7 @@ public class SimCore : MonoBehaviour
     
     public List<GameObject> PlanetaryBodies; 
     public double simStepTime = 3600.0;
-    public double gravity = -1.99356e-44; 
+    public double gravity = -1.99356e-3; //-1.99356e-44; 
 
 
     // Start is called before the first frame update
@@ -40,16 +40,19 @@ public class SimCore : MonoBehaviour
         for(int i=0;i<PlanetaryBodies.Count;i++)
         {
             // update velocity vector on each planetary body.
-
+            
             var pb = PlanetaryBodies[i].GetComponent<PlanetaryBody>();
+            Debug.Log("Looking at Object: " + pb.ObjectName);
             double mass = pb.Mass;
             Vector3 posi = PlanetaryBodies[i].gameObject.transform.position;
 
-            double dx = posi.x;
-            //float dy = posi.y;
-            double dz = posi.z;
+            double dx = pb.posx;
+            //float dy = pb.posy;
+            double dz = pb.posz;
 
             Vector3 veli3 = pb.Velocity;
+            double velocityx = pb.Velocityx;
+            double velocityz = pb.Velocityz;
 
             for (int j=0; j<PlanetaryBodies.Count; j++)
             {
@@ -59,22 +62,22 @@ public class SimCore : MonoBehaviour
                 double mass2 = pb2.Mass;
 
                 Vector3 posj = PlanetaryBodies[j].transform.gameObject.transform.position;
-                double disx = dx - posj.x;
-                //var disy = dy - posj.y;
-                double disz = dz - posj.z;
+                double disx = dx - pb2.posx;
+                //var disy = dy - pb2.posy;
+                double disz = dz - pb2.posz;
 
-                Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx.ToString("F8") +"   " + disz.ToString("F8") + " Vel " + veli3.x.ToString("F8") + "   " + veli3.z.ToString("F8"));
+                Debug.Log("mass = " + mass + " mass2 = " + mass2 + " disx, z = " + disx.ToString("F8") +"   " + disz.ToString("F8") + " Vel " + velocityx.ToString("F8") + "   " + velocityz.ToString("F8"));
 
                 double distSq = disx * disx + disz * disz; // + disy * disy;
-                double invDist = 1.0 / Math.Sqrt(distSq);
+                double invDist = 1.0 / (distSq);
                 //float invDist3 = gravity * mass * Mathf.Abs(invDist * invDist * invDist);
-                double accel = mass2 * Math.Abs(invDist * invDist * invDist) * gravity;
+                double accel = mass2 * invDist * invDist * gravity;
                 Debug.Log("indDist " + invDist.ToString("F8") + " accel   " + accel.ToString("F45"));
 
-                veli3.x += (float)(disx * accel);
+                velocityx += (float)(disx * accel);
                 //veli3.y += dt * disy * invDist3;
-                veli3.z += (float)(disz * accel);
-                Debug.Log("New  Vel " + veli3.x.ToString("F") + "   " + veli3.z.ToString("F"));
+                velocityz += (float)(disz * accel);
+                Debug.Log("New  Vel " + velocityx.ToString("F") + "   " + velocityz.ToString("F"));
             }
 
             // figure out the updated velocity vector after calculations...
@@ -82,6 +85,9 @@ public class SimCore : MonoBehaviour
 
             //var newVelocity = new Vector3(updatedX, updatedY, updatedZ);
             pb.Velocity = veli3;
+            pb.posx += velocityx;
+            pb.posy += veli3.y;
+            pb.posz += velocityz;
         }
         
 
