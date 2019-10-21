@@ -19,7 +19,7 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        creditsText.text = "Angry Space Bird??";
+        creditsText.text = "Thank you NASA Space Apps! 🚀🚀🚀";
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
